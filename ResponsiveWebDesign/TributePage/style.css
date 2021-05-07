@@ -1,0 +1,81 @@
+html {
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 1.2rem;
+    background-color: #f3f1e9;
+}
+
+h1 {
+    font-size: 4.1rem;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+@media(max-width: 460px) {
+    h1 {
+        font-size: 3.1rem;
+        line-height: 1.2;
+    }
+}
+
+h2 {
+    font-size: 1.5rem;
+    font-family: cursive;
+}
+
+#img-div {
+    background: #ffffff;
+    padding: 10px;
+    margin: 0;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+    height: auto;
+    margin: 0 auto;
+}
+
+#img-caption {
+    font-size: 0.8rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 10px 100px 0px 100px;
+    line-height: 1.5;
+}
+
+#headline {
+    font-size: 1.4rem;
+}
+
+ul {
+    max-width: 550px;
+    text-align: left;
+    margin: 0 auto 50px auto;
+    line-height: 1.6;
+    font-size: 1.0rem;
+}
+
+li {
+    margin: 15px 0;
+}
+
+h3 {
+    font-size: 0.8rem;
+}
+
+blockquote {
+    font-size: 1.0rem;
+    font-family: italic;
+    line-height: 0.8;
+    max-width: 550px;
+    text-align: center;
+    margin: 0 auto 50px auto;
+}
+
+#sourceCite {
+    text-align: right;
+    margin: 0 30px 30px auto;
+}

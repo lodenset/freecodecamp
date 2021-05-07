@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <nav id="navbar">
+        <header>Assembly language</header>
+        <ul>
+            <li><a class="nav-link" href="#Introduction">Introduction</a></li>
+            <li><a class="nav-link" href="#Terminology">Terminology</a></li>
+            <li><a class="nav-link" href="#Key_concepts">Key concepts</a></li>
+            <li><a class="nav-link" href="#Assembly_language">Assembly language</a></li>
+            <li><a class="nav-link" href="#Language_design">Language design</a></li>
+            <li><a class="nav-link" href="#Reference">Reference</a></li>
+        </ul>
+    </nav>
+    <main id="main-doc">
+        <section class="main-section" id="Introduction">
+            <header>Introduction</header>
+            <article>
+                <p>In computer programming, assembly language (or assembler language), often abbreviated asm, is any low-level programming language in which there is a very strong correspondence between the instructions in the language and the architecture's
+                    machine code instructions.</p>
+                <p>Because assembly depends on the machine code instructions, every assembly language is designed for exactly one specific computer architecture. Assembly language may also be called symbolic machine code.</p>
+            </article>
+        </section>
+        <section class="main-section" id="Terminology">
+            <header>Terminology</header>
+            <article>
+                <p>
+                    <ol>
+                        <li>A <strong> macro assembler </strong>includes a macroinstruction facility so that (parameterized) assembly language text can be represented by a name, and that name can be used to insert the expanded text into other code.</li>
+                        <li>A<strong> cross assembler </strong>(see also cross compiler) is an assembler that is run on a computer or operating system (the host system) of a different type from the system on which the resulting code is to run (the target
+                            system).
+                        </li>
+                        <li>A<strong> high-level assembler </strong>is a program that provides language abstractions more often associated with high-level languages, such as advanced control structures (IF/THEN/ELSE, DO CASE, etc.) and high-level abstract
+                            data types, including structures/records, unions, classes, and sets.</li>
+                        <li>A<strong> microassembler </strong>is a program that helps prepare a microprogram, called firmware, to control the low level operation of a computer.</li>
+                        <li>A<strong> meta-assembler </strong>is "a program that accepts the syntactic and semantic description of an assembly language, and generates an assembler for that language". "Meta-Symbol" assemblers for the SDS 9 Series and SDS Sigma
+                            series of computers are meta-assemblers. Sperry Univac also provided a Meta-Assembler for the UNIVAC 1100/2200 series.</li>
+                        <li>A<strong>inline assembler</strong>(or embedded assembler) is assembler code contained within a high-level language program. This is most often used in systems programs which need direct access to the hardware.</li>
+                    </ol>
+                </p>
+            </article>
+        </section>
+        <section class="main-section" id="Key_concepts">
+            <header>Key concepts</header>
+            <article>
+                <p>Number of passes</p>
+                <p>There are two types of assemblers based on how many passes through the source are needed (how many times the assembler reads the source) to produce the object file.</p>
+                <p>
+                    <ul>
+                        <li><strong>One-pass assemblers</strong> go through the source code once. Any symbol used before it is defined will require "errata" at the end of the object code (or, at least, no earlier than the point where the symbol is defined)
+                            telling the linker or the loader to "go back" and overwrite a placeholder which had been left where the as yet undefined symbol was used.</li>
+                        <li><strong>Multi-pass assemblers</strong> create a table with all symbols and their values in the first passes, then use the table in later passes to generate code.</li>
+                    </ul>
+                </p>
+                <p><strong>Example:</strong> in the following code snippet, a one-pass assembler would be able to determine the address of the backward reference BKWD when assembling statement S2, but would not be able to determine the address of the forward
+                    reference FWD when assembling the branch statement S1; indeed, FWD may be undefined. A two-pass assembler would determine both addresses in pass 1, so they would be known when generating code in pass 2.</p>
+                <code>
+                    S1   B    FWD
+                    ...
+                    FWD   EQU *
+                    ...
+                    BKWD  EQU *
+                    ...
+                    S2    B   BKWD
+                </code>
+            </article>
+        </section>
+        <section class="main-section" id="Assembly_language">
+            <header>Assembly language</header>
+            <article>
+                <p>A program written in assembly language consists of a series of mnemonic processor instructions and meta-statements (known variously as directives, pseudo-instructions, and pseudo-ops), comments and data. Assembly language instructions
+                    usually consist of an opcode mnemonic followed by an operand, which might be a list of data, arguments or parameters. Some instructions may be "implied," which means the data upon which the instruction operates is implicitly defined
+                    by the instruction itself—such an instruction does not take an operand. The resulting statement is translated by an assembler into machine language instructions that can be loaded into memory and executed.</p>
+                <p>For example, the instruction below tells an x86/IA-32 processor to move an immediate 8-bit value into a register. The binary code for this instruction is 10110 followed by a 3-bit identifier for which register to use. The identifier for
+                    the AL register is 000, so the following machine code loads the AL register with the data 01100001.</p>
+                <p>
+                    <code>
+                        10110000 01100001
+                    </code>
+                </p>
+                <p>This binary computer code can be made more human-readable by expressing it in hexadecimal as follows.</p>
+                <p>
+                    <code>
+                        B0 61
+                    </code>
+                </p>
+                <p>Here, B0 means 'Move a copy of the following value into AL, and 61 is a hexadecimal representation of the value 01100001, which is 97 in decimal. Assembly language for the 8086 family provides the mnemonic MOV (an abbreviation of move)
+                    for instructions such as this, so the machine code above can be written as follows in assembly language, complete with an explanatory comment if required, after the semicolon. This is much easier to read and to remember.</p>
+                <p>
+                    <code>
+                        MOV AL, 61h       ; Load AL with 97 decimal (61 hex)
+                    </code>
+                </p>
+                <p>If the same mnemonic is used for different instructions, that means that the mnemonic corresponds to several different binary instruction codes, excluding data (e.g. the 61h in this example), depending on the operands that follow the mnemonic.
+                    For example, for the x86/IA-32 CPUs, the Intel assembly language syntax MOV AL, AH represents an instruction that moves the contents of register AH into register AL. The[nb 2] hexadecimal form of this instruction is:</p>
+                <p>
+                    <code>
+                        88 E0
+                    </code>
+                </p>
+                <p>Assembly languages are always designed so that this sort of unambiguousness is universally enforced by their syntax. For example, in the Intel x86 assembly language, a hexadecimal constant must start with a numeral digit, so that the hexadecimal
+                    number 'A' (equal to decimal ten) would be written as 0Ah or 0AH, not AH, specifically so that it cannot appear to be the name of register AH. (The same rule also prevents ambiguity with the names of registers BH, CH, and DH, as well
+                    as with any user-defined symbol that ends with the letter H and otherwise contains only characters that are hexadecimal digits, such as the word "BEACH".) Returning to the original example, while the x86 opcode 10110000 (B0) copies
+                    an 8-bit value into the AL register, 10110001 (B1) moves it into CL and 10110010 (B2) does so into DL. Assembly language examples for these follow.</p>
+                <p>
+                    <code>
+                        MOV AL, 1h        ; Load AL with immediate value 1
+                        MOV CL, 2h        ; Load CL with immediate value 2
+                        MOV DL, 3h        ; Load DL with immediate value 3
+                    </code>
+                </p>
+                <p>The syntax of MOV can also be more complex as the following examples show.</p>
+                <p>
+                    <code>
+                        MOV EAX, [EBX]	  ; Move the 4 bytes in memory at the address contained in EBX into EAX
+                        MOV [ESI+EAX], CL ; Move the contents of CL into the byte at address ESI+EAX
+                        MOV DS, DX        ; Move the contents of DX into segment register DS  
+                    </code>
+                </p>
+                <p>Another type of technical writing is found in online articles. There is a wealth of information available on the Internet. Millions of people browse search engines and read through articles they find for instructions and guides, plus to
+                    understand different things.</p>
+                <p>Technical writing, in this case, could vary from articles on how to assemble a crib to articles with detailed medical advice or historical information. This area of technical writing can fall into any of the three categories of technical
+                    writing described above.</p>
+            </article>
+        </section>
+        <section class="main-section" id="Language_design">
+            <header>Language design</header>
+            <article>
+                <p><strong>Basic elements</strong></p>
+                <p>There is a large degree of diversity in the way the authors of assemblers categorize statements and in the nomenclature that they use. In particular, some describe anything other than a machine mnemonic or extended mnemonic as a pseudo-operation
+                    (pseudo-op). A typical assembly language consists of 3 types of instruction statements that are used to define program operations:</p>
+                <p>
+                    <ul>
+                        <li>Opcode mnemonics</li>
+                        <li>Data definitions</li>
+                        <li>Assembly directives</li>
+                    </ul>
+                </p>
+                <p><strong>Opcode mnemonics and extended mnemonics</strong></p>
+                <p>Instructions (statements) in assembly language are generally very simple, unlike those in high-level languages. Generally, a mnemonic is a symbolic name for a single executable machine language instruction (an opcode), and there is at
+                    least one opcode mnemonic defined for each machine language instruction. Each instruction typically consists of an operation or opcode plus zero or more operands. Most instructions refer to a single value or a pair of values. Operands
+                    can be immediate (value coded in the instruction itself), registers specified in the instruction or implied, or the addresses of data located elsewhere in storage. This is determined by the underlying processor architecture: the assembler
+                    merely reflects how this architecture works. Extended mnemonics are often used to specify a combination of an opcode with a specific operand, e.g., the System/360 assemblers use B as an extended mnemonic for BC with a mask of 15 and
+                    NOP ("NO OPeration" – do nothing for one step) for BC with a mask of 0.</p>
+                <p><strong>Data directives</strong></p>
+                <p>There are instructions used to define data elements to hold data and variables. They define the type of data, the length and the alignment of data. These instructions can also define whether the data is available to outside programs (programs
+                    assembled separately) or only to the program in which the data section is defined. Some assemblers classify these as pseudo-ops.</p>
+                <p><strong>Assembly directives</strong></p>
+                <p>Assembly directives, also called pseudo-opcodes, pseudo-operations or pseudo-ops, are commands given to an assembler "directing it to perform operations other than assembling instructions". Directives affect how the assembler operates
+                    and "may affect the object code, the symbol table, the listing file, and the values of internal assembler parameters". Sometimes the term pseudo-opcode is reserved for directives that generate object code, such as those that generate
+                    data. The names of pseudo-ops often start with a dot to distinguish them from machine instructions. Pseudo-ops can make the assembly of the program dependent on parameters input by a programmer, so that one program can be assembled
+                    in different ways, perhaps for different applications. Or, a pseudo-op can be used to manipulate presentation of a program to make it easier to read and maintain. Another common use of pseudo-ops is to reserve storage areas for run-time
+                    data and optionally initialize their contents to known values.</p>
+            </article>
+        </section>
+        <section class="main-section" id="Reference">
+            <header>Reference</header>
+            <article>
+                <p>All information was taken from the <a href="https://en.wikipedia.org/wiki/Assembly_language">wikipedia</a> site for demonstration purposes.</p>
+            </article>
+        </section>
+    </main>
+</body>
+
+</html>
