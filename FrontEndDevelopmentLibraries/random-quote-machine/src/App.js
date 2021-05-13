@@ -72,25 +72,29 @@ function App() {
           </blockquote>
         </figure>
         <div className="row">
-          <button
-            className="btn btn-xs btn-primary col-sm-1 my-4 mx-1  share-btn"
-            id="tweet-quote"
-          >
+          <button className="btn btn-xs btn-primary col-sm-1 my-4 mx-2  share-btn">
             <a
               href={`https://www.tumblr.com/widgets/share/tool?posttype=quote&tags=quotes,freecodecamp&caption='${
                 encodeURIComponent(currentQuote.quoteAuthor) +
                 "&content=" +
                 encodeURIComponent(currentQuote.quoteText)
               }`}
+              without
+              rel="noreferrer"
+              target="_blank"
             >
               <FontAwesomeIcon icon={faTumblr} color="#ffffff" />
             </a>
           </button>
           <button className="btn btn-xs btn-primary col-sm-1 my-4 share-btn">
             <a
+              id="tweet-quote"
               href={`https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text=${encodeURIComponent(
                 '"' + currentQuote.quoteText + '" ' + currentQuote.quoteAuthor
               )}`}
+              without
+              rel="noreferrer"
+              target="_blank"
             >
               <FontAwesomeIcon icon={faTwitter} color="#ffffff" />
             </a>
