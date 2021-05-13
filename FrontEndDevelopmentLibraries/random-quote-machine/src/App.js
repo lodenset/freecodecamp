@@ -63,17 +63,17 @@ function App() {
       <div className="quote-form">
         <figure>
           <blockquote className="blockquote text-center">
-            <p id="text">
+            <p id="text" className="form-field">
               <FontAwesomeIcon icon={faQuoteLeft} /> {currentQuote.quoteText}
             </p>
-            <footer className="blockquote-footer" id="author">
+            <footer className="blockquote-footer form-field" id="author">
               {currentQuote.quoteAuthor}
             </footer>
           </blockquote>
         </figure>
         <div className="row">
           <button
-            className="btn btn-xs btn-primary col-sm-1 my-3 mx-1  share-btn"
+            className="btn btn-xs btn-primary col-sm-1 my-4 mx-1  share-btn"
             id="tweet-quote"
           >
             <a
@@ -86,7 +86,7 @@ function App() {
               <FontAwesomeIcon icon={faTumblr} color="#ffffff" />
             </a>
           </button>
-          <button className="btn btn-xs btn-primary col-sm-1 my-3 share-btn">
+          <button className="btn btn-xs btn-primary col-sm-1 my-4 share-btn">
             <a
               href={`https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text=${encodeURIComponent(
                 '"' + currentQuote.quoteText + '" ' + currentQuote.quoteAuthor
@@ -96,7 +96,7 @@ function App() {
             </a>
           </button>
           <button
-            className="btn btn-lg btn-primary col-sm-4 my-3 ms-auto"
+            className="btn btn-lg btn-primary col-sm-4 my-4 ms-auto"
             id="new-quote"
             onClick={() => {
               getRandomQuote();

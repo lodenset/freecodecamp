@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,500');
 
 body {  
   display: flex;
@@ -9,24 +9,27 @@ body {
 
 #quote-box {
   width: 460px;
-  background-color: white;
-  margin: auto;
+  background-color: white;  
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-  padding: 10px;
+  padding: 15px;
 }
 
 .quote-form {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  padding: 10px;
+  padding: 15px;
 }
 
 .form-field {
   margin: 10px 0 10px 0;
-  padding: 15px;
-  font-size: 16px;
+  padding: 10px;
+  font-size: 28px;
   border: 0;
-  font-family: "Roboto", sans-serif;
+  font-family: "Raleway", sans-serif;
+}
+
+.row {
+  margin: -35px;
 }
 
