@@ -2,7 +2,7 @@ import "./App.css";
 import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faQuoteLeft } from "@fortawesome/free-solid-svg-icons";
-import { faTwitter, faFacebookF } from "@fortawesome/free-brands-svg-icons";
+import { faTwitter, faTumblr } from "@fortawesome/free-brands-svg-icons";
 
 function App() {
   const quotesUrl =
@@ -76,10 +76,24 @@ function App() {
             className="btn btn-xs btn-primary col-sm-1 my-3 mx-1  share-btn"
             id="tweet-quote"
           >
-            <FontAwesomeIcon icon={faFacebookF} />
+            <a
+              href={`https://www.tumblr.com/widgets/share/tool?posttype=quote&tags=quotes,freecodecamp&caption='${
+                encodeURIComponent(currentQuote.quoteAuthor) +
+                "&content=" +
+                encodeURIComponent(currentQuote.quoteText)
+              }`}
+            >
+              <FontAwesomeIcon icon={faTumblr} color="#ffffff" />
+            </a>
           </button>
           <button className="btn btn-xs btn-primary col-sm-1 my-3 share-btn">
-            <FontAwesomeIcon icon={faTwitter} />
+            <a
+              href={`https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text=${encodeURIComponent(
+                '"' + currentQuote.quoteText + '" ' + currentQuote.quoteAuthor
+              )}`}
+            >
+              <FontAwesomeIcon icon={faTwitter} color="#ffffff" />
+            </a>
           </button>
           <button
             className="btn btn-lg btn-primary col-sm-4 my-3 ms-auto"
