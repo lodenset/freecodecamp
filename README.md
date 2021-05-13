@@ -13,7 +13,7 @@ Solutions for freecodecamp.org
   5.[Build a Personal Portfolio Webpage](https://www.freecodecamp.org/learn/responsive-web-design/responsive-web-design-projects/build-a-personal-portfolio-webpage "Build a Personal Portfolio Webpage")
 
 ## Commits
-**```#issue_number <type>:<body>```**
+**```#issue_number <type>:<message>```**
 
 | Type | Description |
 | ------ | ------ |
@@ -24,7 +24,6 @@ Solutions for freecodecamp.org
 | fix | Bug fixes |
 | perf | The changes are aimed at improving performance |
 | refactor | Code editing without bug fixing or adding new features |
-| revert | Revert to previous commit |
 | style | Style code edits (tabs, padding, dots, etc.) |
 | test | Adding tests |
 | protect| The changes are aimed to protect software |
