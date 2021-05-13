@@ -1,4 +1,12 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+body {  
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
 #quote-box {
   width: 460px;
   background-color: white;
@@ -22,9 +30,3 @@
   font-family: "Roboto", sans-serif;
 }
 
-span {
-  font-family: "Roboto", sans-serif;
-  font-size: 14px;
-  color: red;
-  margin-bottom: 15px;
-}

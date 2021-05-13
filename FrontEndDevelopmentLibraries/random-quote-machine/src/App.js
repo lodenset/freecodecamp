@@ -2,6 +2,7 @@ import "./App.css";
 import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faQuoteLeft } from "@fortawesome/free-solid-svg-icons";
+import { faTwitter, faFacebookF } from "@fortawesome/free-brands-svg-icons";
 
 function App() {
   const quotesUrl =
@@ -46,7 +47,7 @@ function App() {
         quoteText: randomQuote.quote,
         quoteAuthor: randomQuote.author,
       }));
-      
+
       setRandomColor();
     }
   };
@@ -71,10 +72,17 @@ function App() {
           </blockquote>
         </figure>
         <div className="row">
-          <button className="btn btn-xs btn-primary col-sm-1"></button>
-          <span className="col-4"></span>
           <button
-            className="btn btn-lg btn-primary col-sm-4"
+            className="btn btn-xs btn-primary col-sm-1 my-3 mx-1  share-btn"
+            id="tweet-quote"
+          >
+            <FontAwesomeIcon icon={faFacebookF} />
+          </button>
+          <button className="btn btn-xs btn-primary col-sm-1 my-3 share-btn">
+            <FontAwesomeIcon icon={faTwitter} />
+          </button>
+          <button
+            className="btn btn-lg btn-primary col-sm-4 my-3 ms-auto"
             id="new-quote"
             onClick={() => {
               getRandomQuote();
