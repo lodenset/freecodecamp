@@ -3,6 +3,28 @@ import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faQuoteLeft } from "@fortawesome/free-solid-svg-icons";
 import { faTwitter, faTumblr } from "@fortawesome/free-brands-svg-icons";
+import { useSpring, animated } from "react-spring";
+
+function AnimatedText({quote}) {
+
+  const springProps = useSpring({ opacity: 1, from: { opacity: 0 }, delay: 500 });
+
+  return (
+    <animated.div style={springProps}>
+      <figure>
+        <blockquote className="blockquote text-center">
+          <p id="text" className="form-field">
+            <FontAwesomeIcon icon={faQuoteLeft} />
+            {quote.quoteText}
+          </p>
+          <footer className="blockquote-footer form-field" id="author">
+            {quote.quoteAuthor}
+          </footer>
+        </blockquote>
+      </figure>
+    </animated.div>
+  );
+}
 
 function App() {
   const quotesUrl =
@@ -38,7 +60,7 @@ function App() {
         getRandomQuote(data.quotes);
         setRandomColor();
       });
-  }, [setListQutes]);
+  }, []);
 
   const getRandomQuote = (listData = listQuotes) => {
     let randomQuote = listData[Math.floor(Math.random() * listData.length)];
@@ -61,16 +83,7 @@ function App() {
   return (
     <div id="quote-box" className="well well-sm">
       <div className="quote-form">
-        <figure>
-          <blockquote className="blockquote text-center">
-            <p id="text" className="form-field">
-              <FontAwesomeIcon icon={faQuoteLeft} /> {currentQuote.quoteText}
-            </p>
-            <footer className="blockquote-footer form-field" id="author">
-              {currentQuote.quoteAuthor}
-            </footer>
-          </blockquote>
-        </figure>
+        <AnimatedText key={currentQuote.quoteText} quote={currentQuote}/>
         <div className="row">
           <button className="btn btn-xs btn-primary col-sm-1 my-4 mx-2  share-btn">
             <a
