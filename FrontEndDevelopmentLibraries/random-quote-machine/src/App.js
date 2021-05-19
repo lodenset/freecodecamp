@@ -5,9 +5,12 @@ import { faQuoteLeft } from "@fortawesome/free-solid-svg-icons";
 import { faTwitter, faTumblr } from "@fortawesome/free-brands-svg-icons";
 import { useSpring, animated } from "react-spring";
 
-function AnimatedText({quote}) {
-
-  const springProps = useSpring({ opacity: 1, from: { opacity: 0 }, delay: 500 });
+function AnimatedText({ quote }) {
+  const springProps = useSpring({
+    opacity: 1,
+    from: { opacity: 0 },
+    delay: 500,
+  });
 
   return (
     <animated.div style={springProps}>
@@ -81,49 +84,45 @@ function App() {
   };
 
   return (
-    <div id="quote-box" className="well well-sm">
-      <div className="quote-form">
-        <AnimatedText key={currentQuote.quoteText} quote={currentQuote}/>
-        <div className="row">
-          <button className="btn btn-xs btn-primary col-sm-1 my-4 mx-2  share-btn">
-            <a
-              href={`https://www.tumblr.com/widgets/share/tool?posttype=quote&tags=quotes,freecodecamp&caption='${
-                encodeURIComponent(currentQuote.quoteAuthor) +
-                "&content=" +
-                encodeURIComponent(currentQuote.quoteText)
-              }`}
-              without
-              rel="noreferrer"
-              target="_blank"
+      <div id="quote-box" className="well well-sm">
+        <div className="quote-form">
+          <AnimatedText key={currentQuote.quoteText} quote={currentQuote} />
+          <div className="row">
+            <button className="btn btn-xs btn-primary col-sm-1 my-4 mx-2  share-btn">
+              <a
+                href={`https://www.tumblr.com/widgets/share/tool?posttype=quote&tags=quotes,freecodecamp&caption='${encodeURIComponent(
+                  currentQuote.quoteAuthor
+                )}&content=${encodeURIComponent(currentQuote.quoteText)}`}
+                rel="noreferrer"
+                target="_blank"
+              >
+                <FontAwesomeIcon icon={faTumblr} color="#ffffff" />
+              </a>
+            </button>
+            <button className="btn btn-xs btn-primary col-sm-1 my-4 share-btn">
+              <a
+                id="tweet-quote"
+                href={`https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text=${encodeURIComponent(
+                  currentQuote.quoteText
+                )}${currentQuote.quoteAuthor}`}
+                rel="noreferrer"
+                target="_blank"
+              >
+                <FontAwesomeIcon icon={faTwitter} color="#ffffff" />
+              </a>
+            </button>
+            <button
+              className="btn btn-lg btn-primary col-sm-4 my-4 ms-auto"
+              id="new-quote"
+              onClick={() => {
+                getRandomQuote();
+              }}
             >
-              <FontAwesomeIcon icon={faTumblr} color="#ffffff" />
-            </a>
-          </button>
-          <button className="btn btn-xs btn-primary col-sm-1 my-4 share-btn">
-            <a
-              id="tweet-quote"
-              href={`https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text=${encodeURIComponent(
-                '"' + currentQuote.quoteText + '" ' + currentQuote.quoteAuthor
-              )}`}
-              without
-              rel="noreferrer"
-              target="_blank"
-            >
-              <FontAwesomeIcon icon={faTwitter} color="#ffffff" />
-            </a>
-          </button>
-          <button
-            className="btn btn-lg btn-primary col-sm-4 my-4 ms-auto"
-            id="new-quote"
-            onClick={() => {
-              getRandomQuote();
-            }}
-          >
-            New quote
-          </button>
+              New quote
+            </button>
+          </div>
         </div>
       </div>
-    </div>
   );
 }
 
