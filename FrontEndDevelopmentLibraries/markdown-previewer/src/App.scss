@@ -1,6 +1,174 @@
-$mainBackground: #facd07;
+@import url('https://fonts.googleapis.com/css2?family=Squada+One&display=swap');
+$mainBackground: #522202;
+$backgroundBase: #1588ca;
+$darkAccent: #552a01;
+$lightAccent: #009ffc;
+$shadow: 1px 1px 10px 2px darken($backgroundBase, 20%);
+$default-border: 1px solid darken($backgroundBase, 35%);
 
-body{
-    background-color: $mainBackground;
-    color: $mainBackground;
+body {
+  background: lighten($backgroundBase, 12%);
+  margin: 10px 0;
+  display: flex;
+  justify-content: center;
+}
+
+#preview,
+#editor,
+.title {
+  display: inline-block;
+}
+
+.colorScheme {
+  background-color: lighten($backgroundBase, 30%);
+  border: $default-border;
+  border-radius: 0px 0px 10px 10px;
+  box-shadow: $shadow;
+  border-top: none;
+}
+
+.toolbar {
+  position: relative;
+  background-color: lighten($darkAccent, 25%);
+  padding: 4px 4px 3px 3px;
+  border: $default-border;
+  border-radius: 10px 10px 0 0;
+  box-shadow: $shadow;
+  font-family: Squada One;
+  color: #fff;
+  font-size: 15px;
+  .icon {
+    width: 25px;
+    margin-left: 5px;
+  }
+  .wrapIcon{
+    position: absolute;
+    padding-top: 2px;
+    right: 10px;
+  }
+}
+
+.wrapIcon {
+  &:hover {
+    color: lighten($lightAccent, 10%);
+    cursor: pointer;
+  }
+}
+
+.editorWrap {
+  width: 600px;
+  margin: 18px auto;
+  .toolbar {
+    width: 100%;
+  }
+  
+  textarea {
+    @extend .colorScheme;
+    width: 100%;
+    min-height: 200px;
+    margin-bottom: -5px;
+    resize: vertical;
+    outline: none;
+    padding-left: 5px;
+    padding-top: 5px;
+    font-size: 14px;
+  }
+}
+
+.previewWrap {  
+  width: 800px;
+  margin: 20px auto;
+  min-height: 200px;
+  overflow-wrap: break-word;
+  .toolbar {
+    width: 100%;
+  }  
+  #preview {
+    @extend .colorScheme;
+    text-align: justify;
+    margin-bottom: -5px;
+    padding: 20px;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .previewWrap {
+    width: 630px;
+  }
+  .editorWrap {
+    width: 550px;
+  }
+}
+
+.maximized {
+  width: 90vw;
+  min-height: 100vh;
+  margin: auto;
+  textarea {
+    min-height: 95vh;
+  }
+}
+
+.hide {
+  display: none;
+}
+
+@media screen and (max-width: 650px) {
+  body {
+    margin: 5px 0;
+  }
+  .editorWrap {
+    width: 80vw;
+    margin: 0 auto;
+  }
+  .maximized {
+    width: 95vw;
+    margin: auto;
+  }
+  .previewWrap {
+    width: 95vw;
+    #preview {
+      width: 100%;
+      img {
+        height: 200px;
+      }
+    }
+  }
+}
+
+// MARKDOWN STYLES
+#preview {
+  blockquote {
+    border-left: 3px solid #224b4b;
+    color: #224b4b;
+    padding-left: 5px;
+    margin-left: 25px;
+  }
+
+  code {
+    background: white;
+    padding: 1px 4px 2px 4px;
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  h1 {
+    border-bottom: 2px solid $darkAccent;
+  }
+
+  h2 {
+    border-bottom: 1px solid $darkAccent;
+  }
+
+  table {
+    border-collapse: collapse;
+  }
+
+  td,
+  th {
+    border: 2px solid $darkAccent;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
 }
