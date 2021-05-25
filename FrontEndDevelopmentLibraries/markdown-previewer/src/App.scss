@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Squada+One&display=swap');
 $mainBackground: #522202;
-$backgroundBase: #1588ca;
+$backgroundBase: #989c98;
 $darkAccent: #552a01;
 $lightAccent: #009ffc;
 $shadow: 1px 1px 10px 2px darken($backgroundBase, 20%);
@@ -151,6 +151,11 @@ body {
     padding: 1px 4px 2px 4px;
     font-size: 12px;
     font-weight: bold;
+  }
+
+  pre {
+    background: white;
+    padding: 5px 0 5px 5px;
   }
 
   h1 {
