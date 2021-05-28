@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap');
 
-$mainBackground: #522202;
+$mainBackground: #fca56a;
 $backgroundBase: #989c98;
 $darkAccent: #552a01;
 $lightAccent: #009ffc;
@@ -10,7 +10,7 @@ $shadow: 1px 1px 10px 2px darken($backgroundBase, 20%);
 $default-border: 1px solid darken($backgroundBase, 35%);
 
 body {
-  background: lighten($backgroundBase, 12%);
+  background: lighten($mainBackground, 1%);
   margin: 10px 0;
   display: flex;
   justify-content: center;
