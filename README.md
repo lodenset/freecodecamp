@@ -12,6 +12,10 @@ Solutions for freecodecamp.org
 
   5.[Build a Personal Portfolio Webpage](https://www.freecodecamp.org/learn/responsive-web-design/responsive-web-design-projects/build-a-personal-portfolio-webpage "Build a Personal Portfolio Webpage")
 
+ - Front End Development Libraries
+  1. [Build a Random Quote Machine](https://www.freecodecamp.org/learn/front-end-libraries/front-end-libraries-projects/build-a-random-quote-machine "Build a Random Quote Machine")
+  2. [Build a Markdown Previewer](https://www.freecodecamp.org/learn/front-end-libraries/front-end-libraries-projects/build-a-markdown-previewer "Build a Markdown Previewer")
+
 ## Commits
 **```#issue_number <type>:<message>```**
 
