@@ -1,0 +1,101 @@
+@import url("https://fonts.googleapis.com/css?family=Russo+One");
+$padWidth: 100px;
+$padHeight: 80px;
+body {
+  background-color: lighten(grey, 5%);
+  font-family: Russo One;
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+}
+
+.inner-container {
+  outline: 5px solid lighten(#0d6efd, 20%);
+  position: relative;
+  width: 660px;
+  text-align: center;
+  background-color: lighten(#0d6efd, 44%);
+  .pad-bank {
+    color: #fff;
+    width: $padWidth * 3 + 32;
+    height: $padHeight * 3 + 32;
+    display: inline-block;
+    margin: 25px;
+    .drum-pad {
+      position: relative;
+      float: left;
+      width: $padWidth;
+      height: $padHeight;
+      margin-right: 10px;
+      border-radius: 5px;
+      padding-top: 35px;
+      box-sizing: border-box;
+      cursor: pointer;
+    }
+  }
+
+  .logo {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    .inner-logo {
+      display: inline-block;
+      font-style: italic;
+      font-weight: bold;
+      font-size: 20px;
+    }
+  }
+
+  .controls-container {
+    width: 240px;
+    display: inline-block;
+    height: $padHeight * 3 + 32;
+    margin-top: 40px;
+    vertical-align: top;
+    .control {
+      width: 100px;
+      margin: 0px auto auto auto;
+      p {
+        margin-bottom: 0;
+      }
+      .select {
+        @extend .outer-select;
+      }
+    }
+
+    #display {
+      border-radius: 5px;
+      color: #fff;
+      width: 220px;
+      background-color: gray;
+      margin: 15px;
+      padding: 15px;
+      box-sizing: border-box;
+    }
+
+    .volume-slider {
+      width: 220px;
+      margin: 15px;
+    }
+
+    .select-bank {
+      width: 220px;
+      margin: 15px;
+    }
+  }
+}
+
+.outer-select {
+  margin: 0px 25px 40px 25px;
+  width: 50px;
+  height: 20px;
+  padding: 1px;
+}
+
+@media screen and (max-width: 650px) {
+  .inner-container {
+    transform: scale(0.7);
+  }
+}
