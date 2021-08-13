@@ -18,6 +18,7 @@ Solutions for freecodecamp.org
   2. [Build a Markdown Previewer](https://www.freecodecamp.org/learn/front-end-libraries/front-end-libraries-projects/build-a-markdown-previewer "Build a Markdown Previewer")
   3. [Build a Drum Machine](https://www.freecodecamp.org/learn/front-end-libraries/front-end-libraries-projects/build-a-drum-machine "Build a Drum Machine")
   4. [Build a JavaScript Calculator](https://www.freecodecamp.org/learn/front-end-libraries/front-end-libraries-projects/build-a-javascript-calculator "Build a JavaScript Calculator")
+  5. [Build a 25 + 5 Clock](https://www.freecodecamp.org/learn/front-end-libraries/front-end-libraries-projects/build-a-25--5-clock "Build a 25 + 5 Clock")
 
 ## Commits
 **```#issue_number <type>:<message>```**
